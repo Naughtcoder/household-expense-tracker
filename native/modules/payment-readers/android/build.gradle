@@ -1,0 +1,23 @@
+plugins {
+  id 'com.android.library'
+  id 'expo-module-gradle-plugin'
+}
+
+group = 'com.example.expensetracker'
+version = '1.0.0'
+
+android {
+  namespace "morgan.household.readers"
+  defaultConfig {
+    versionCode 1
+    versionName '1.0.0'
+  }
+}
+
+dependencies {
+  // The background sender, retried with back-off until the books have each text.
+  implementation "androidx.work:work-runtime:2.10.5"
+  // Reads text off a payment app's history screenshot, on the phone, with the
+  // model inside the app (nothing is downloaded or sent anywhere to read it).
+  implementation "com.google.mlkit:text-recognition:16.0.1"
+}

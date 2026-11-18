@@ -1,0 +1,89 @@
+/* Layer 1: raw values. No meaning attached, nothing here knows what a button is.
+   These are the stops from the Stitch palette sheet, "Alex + Sam, interface
+   palette". The named ones are exact; the rest are interpolated to fill the
+   ramps. Peach is the accent in dark and a fill in light, teal is the accent in
+   light only, and that swap is deliberate rather than a mistake to tidy up. */
+:root {
+  --peach-50:  #FDF1E9;
+  --peach-100: #F7D8C4;
+  --peach-200: #EFBE9F;
+  --peach-300: #E8A47E;
+  --peach-400: #D6885C;
+  --peach-500: #BC6C40;
+
+  --teal-300: #3C8496;
+  --teal-400: #2E6E80;
+  --teal-500: #265B69;
+  --teal-600: #1B4451;
+
+  --slate-50:  #FFFFFF;
+  --slate-100: #E9F1F4;
+  --slate-200: #CADEE5;
+  --slate-300: #A5BEC7;
+  --slate-400: #7599A6;
+  --slate-500: #41647E;
+  --slate-600: #1B3A50;
+  --slate-700: #152D3F;
+  --slate-800: #102431;
+  --slate-900: #0C1A24;
+  --slate-950: #030F19;
+  --black:     #000000;
+
+  /* Neutrals for the clean look (Dime's greys): a white page, light grey
+     cards, near-black text in light; the reverse in dark. */
+  --grey-0:   #FFFFFF;
+  --grey-50:  #F6F6F7;
+  --grey-100: #EDEEF0;
+  --grey-200: #E2E3E6;
+  --grey-400: #A6A6AB;
+  --grey-500: #7C7C82;
+  --grey-600: #5A5A60;
+  --grey-900: #111113;
+  --dark-bg:      #0B0B0C;
+  --dark-card:    #1A1A1C;
+  --dark-raised:  #262628;
+  --dark-line:    #2E2E31;
+  --dark-text-2:  #9A9AA0;
+  --dark-text-3:  #6C6C72;
+  --income-green: #2FA58F;
+  --income-green-dark: #45C7AE;
+  --alert-red:    #E5484D;
+  --alert-red-dark: #FF6B6F;
+  --night-900:   #0B0B0D;
+  --night-800:   #161618;
+  --night-700:   #232326;
+
+  --green-light: #36795F;
+  --green-dark:  #6FBFA0;
+  --red-light:   #C13C25;
+  --red-dark:    #E0705C;
+  --amber-light: #B45309;
+  --amber-dark:  #FBBF24;
+
+  /* 2, 4, 8, 12, 16, 24. Every gap in the app is one of these. */
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 8px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 24px;
+
+  /* Six sizes, down from eleven. */
+  --text-1: 10px;
+  --text-2: 12px;
+  --text-3: 13px;
+  --text-4: 15px;
+  --text-5: 20px;
+  --text-6: 30px;
+
+  /* 10 is the card corner throughout the new design, 14 for the bigger panels. */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* Apple asks for 44. Nothing tappable goes below it on a phone. */
+  --touch: 44px;
+
+  --gutter: clamp(16px, 4vw, 32px);
+}

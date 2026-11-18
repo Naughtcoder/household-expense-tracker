@@ -1,0 +1,169 @@
+/* Layer 2: meaning. The only file that knows which raw colour does what job.
+   A third theme later is one more block here and nothing else. */
+
+:root {
+  --page-bg:           var(--dark-bg);
+  --page-text:         var(--grey-0);
+  --page-text-subdued: var(--dark-text-2);
+  --page-text-muted:   var(--dark-text-3);
+
+  --surface:           var(--dark-card);
+  --surface-raised:    var(--dark-raised);
+  --surface-sunken:    var(--black);
+  --field-bg:          var(--dark-card);
+
+  --border:            var(--dark-line);
+  --border-strong:     var(--dark-raised);
+
+  /* Monochrome accent: the primary action is white on black, as in Dime.
+     Colour is kept for meaning (money in, over budget) and for categories. */
+  --accent:            var(--grey-0);
+  --accent-hover:      var(--grey-200);
+  --accent-text:       var(--grey-900);
+  --accent-quiet:      var(--grey-0);
+  --accent-fill:       var(--peach-300);
+
+  --positive:          var(--income-green-dark);
+  --negative:          var(--alert-red-dark);
+  --caution:           var(--amber-dark);
+  --claimable:         var(--positive);
+
+  /* Category colours. One accent, then steel blues, so a breakdown reads as
+     one family with a clear leader rather than a rainbow. These are tokens
+     because a chart on a near-white page needs different values, which is the
+     thing a hardcoded ramp in a helper cannot do. */
+  /* Category icon tiles. Distinct on purpose: an icon has to be told apart
+     at a glance, which the one-family bar ramp above is designed not to do. */
+  --hue-1: #279AF4; --hue-2: #FE724E; --hue-3: #B1638B; --hue-4: #D364FE; --hue-5: #6A7CF9; --hue-6: #FDBC3B;
+  --hue-7: #FF78A3; --hue-8: #3BB19F; --hue-9: #F73C60; --hue-10: #23CAFF; --hue-11: #7B01FE; --hue-12: #FE6663;
+  --hue-13: #158AB1; --hue-14: #CD8952; --hue-15: #6BB2AA; --hue-16: #859977; --hue-17: #244C7F; --hue-18: #E3667E;
+  --cat-1: var(--peach-300);
+  --cat-2: var(--slate-300);
+  --cat-3: var(--teal-300);
+  --cat-4: var(--slate-400);
+  --cat-5: var(--peach-100);
+  --cat-6: var(--teal-500);
+  --cat-7: var(--slate-500);
+
+  /* The dimming behind the More sheet. Heavier on a dark page than a pale one. */
+  --scrim:             rgba(3, 15, 25, 0.62);
+  --bloom:             transparent;
+  --shadow:            0 1px 2px rgba(3, 15, 25, .40);
+  --shadow-lifted:     0 18px 42px rgba(3, 15, 25, .55);
+}
+
+:root[data-theme="light"] {
+  --page-bg:           var(--grey-0);
+  --page-text:         var(--grey-900);
+  --page-text-subdued: var(--grey-500);
+  --page-text-muted:   var(--grey-400);
+
+  --surface:           var(--grey-50);
+  --surface-raised:    var(--grey-100);
+  --surface-sunken:    var(--grey-100);
+  --field-bg:          var(--grey-50);
+
+  --border:            var(--grey-100);
+  --border-strong:     var(--grey-200);
+
+  --accent:            var(--grey-900);
+  --accent-hover:      var(--grey-600);
+  --accent-text:       var(--grey-0);
+  --accent-quiet:      var(--grey-900);
+  --accent-fill:       var(--peach-300);
+
+  --positive:          var(--income-green);
+  --negative:          var(--alert-red);
+  --caution:           var(--amber-light);
+  --claimable:         var(--positive);
+
+
+  --cat-1: var(--peach-400);
+  --cat-2: var(--slate-500);
+  --cat-3: var(--teal-400);
+  --cat-4: var(--slate-400);
+  --cat-5: var(--peach-500);
+  --cat-6: var(--teal-600);
+  --cat-7: var(--slate-600);
+
+  --scrim:             rgba(12, 26, 36, 0.38);
+  --bloom:             transparent;
+  --shadow:            0 1px 3px rgba(12, 26, 36, .10);
+  --shadow-lifted:     0 18px 42px rgba(12, 26, 36, .16);
+}
+
+/* No stored choice: follow the device. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]):not([data-theme="light"]):not([data-theme="black"]) {
+    --page-bg:           var(--grey-0);
+    --page-text:         var(--grey-900);
+    --page-text-subdued: var(--grey-500);
+    --page-text-muted:   var(--grey-400);
+
+    --surface:           var(--grey-50);
+    --surface-raised:    var(--grey-100);
+    --surface-sunken:    var(--grey-100);
+    --field-bg:          var(--grey-50);
+
+    --border:            var(--grey-100);
+    --border-strong:     var(--grey-200);
+
+    --accent:            var(--grey-900);
+    --accent-hover:      var(--grey-600);
+    --accent-text:       var(--grey-0);
+    --accent-quiet:      var(--grey-900);
+    --accent-fill:       var(--peach-300);
+
+    --positive:          var(--income-green);
+    --negative:          var(--alert-red);
+    --caution:           var(--amber-light);
+    --claimable:         var(--positive);
+
+    --cat-1: var(--peach-400);
+    --cat-2: var(--slate-500);
+    --cat-3: var(--teal-400);
+    --cat-4: var(--slate-400);
+    --cat-5: var(--peach-500);
+    --cat-6: var(--teal-600);
+    --cat-7: var(--slate-600);
+    --scrim:             rgba(12, 26, 36, 0.38);
+    --bloom:             transparent;
+    --shadow:            0 1px 3px rgba(12, 26, 36, .10);
+    --shadow-lifted:     0 18px 42px rgba(12, 26, 36, .16);
+  }
+}
+
+/* Old names, kept pointing at the new ones so every inline style in the app
+   keeps working while the components are swept. Delete once the sweep is done. */
+:root {
+  --violet:      var(--accent);
+  --violet-lift: var(--accent-hover);
+  --void:        var(--page-bg);
+  --surface-low: var(--surface);
+  --lavender:    var(--page-text-muted);
+  --body:        var(--page-text-subdued);
+  --white:       var(--page-text);
+  --line:        var(--border-strong);
+  --line-soft:   var(--border);
+  --credit:      var(--positive);
+  --warn:        var(--caution);
+  --meter-track: var(--surface-raised);
+  --debit:       var(--page-text-subdued);
+  --r-sm:        var(--radius-sm);
+  --r-md:        var(--radius-md);
+  --r-lg:        var(--radius-lg);
+  --pad:         var(--gutter);
+}
+
+/* True black, for an OLED phone. The dark theme with every surface taken to
+   black or near-black; the accent and the meaning colours stay as they are. */
+:root[data-theme="black"] {
+  --page-bg:        var(--black);
+  --surface:        var(--night-900);
+  --surface-raised: var(--night-800);
+  --surface-sunken: var(--black);
+  --field-bg:       var(--night-900);
+  --border:         var(--night-800);
+  --border-strong:  var(--night-700);
+  --scrim:          rgba(0, 0, 0, 0.7);
+}

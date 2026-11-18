@@ -1,0 +1,82 @@
+/* Layer 4: layout. Two breakpoints, 520 and 900, replacing the awkward band
+   between 600 and 700 that the old stylesheet had. */
+
+.toptabs { display: flex; align-items: center; gap: var(--space-2); }
+.bottomnav { display: none; }
+.sheetback { display: none; }
+
+/* ---------- phone, below 520 ---------- */
+@media (max-width: 519px) {
+  /* Anything under 16px makes iOS zoom the page when a field is focused. */
+  .input { font-size: 16px; }
+  .btn { width: 100%; padding: var(--space-4) var(--space-6); min-height: var(--touch); }
+  .chip { padding: var(--space-3) var(--space-5); min-height: 38px; display: inline-flex; align-items: center; }
+  .card { padding: var(--space-5); }
+  .trend { height: 150px; gap: 6px; }
+  .trend .cap { font-size: 9.5px; }
+  .brand { font-size: var(--text-4); }
+}
+
+/* ---------- phone and small tablet, below 900: bottom navigation ---------- */
+@media (max-width: 899px) {
+  .toptabs { display: none; }
+  .nav { padding: max(var(--space-3), env(safe-area-inset-top)) var(--gutter) var(--space-3); }
+
+  .bottomnav {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+    background: color-mix(in srgb, var(--page-bg) 92%, transparent);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border);
+    padding-bottom: max(6px, env(safe-area-inset-bottom));
+  }
+  .btab {
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    padding: 12px var(--space-2) 8px; justify-content: center;
+    font-size: 10.5px; color: var(--page-text-muted); text-decoration: none;
+    background: none; border: 0; font-family: inherit; cursor: pointer;
+    min-height: var(--touch);
+  }
+  .bicon { position: relative; display: block; line-height: 0; }
+  .sheet { max-height: 82vh; overflow-y: auto; }
+  /* Filled icons with their names under them, the current one in the accent,
+     as in the phone app (Alex, 4 Oct 2026). The icons punch their details
+     out in the bar's own colour. */
+  .bottomnav { --tab-cut: var(--page-bg); }
+  .btab[aria-current="page"], .btab.on { color: var(--accent); }
+  .blabel { font-size: 10.5px; font-weight: 600; line-height: 1; }
+  .bdot {
+    position: absolute; top: -5px; right: -9px;
+    min-width: 16px; height: 16px; padding: 0 var(--space-2); border-radius: var(--radius-pill);
+    background: var(--negative); color: var(--accent-text); font-size: var(--text-1); font-weight: 700;
+    display: grid; place-items: center;
+  }
+
+  .wrap.wrap { padding-bottom: calc(86px + env(safe-area-inset-bottom)); }
+
+  .sheetback { display: block; position: fixed; inset: 0; z-index: 40; background: var(--scrim); }
+  .sheet {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    background: var(--surface); border-top: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    padding: var(--space-3) var(--space-3) calc(var(--space-5) + env(safe-area-inset-bottom));
+    animation: rise .18s ease-out;
+  }
+  .grabber { width: 38px; height: 4px; border-radius: var(--radius-pill); background: var(--border-strong); margin: 6px auto var(--space-3); }
+  @keyframes rise { from { transform: translateY(14px); opacity: .6 } to { transform: none; opacity: 1 } }
+  @media (prefers-reduced-motion: reduce) { .sheet { animation: none } }
+
+  .menu { position: fixed; top: 58px; left: var(--space-4); right: var(--space-4); min-width: 0; }
+}
+
+/* ---------- laptop, 900 and up ---------- */
+@media (min-width: 900px) {
+  /* Month has a natural split: how it broke down, and what happened. */
+  .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); align-items: start; }
+}
+
+/* Installed to the home screen the page starts under the status bar, so the
+   safe area is handled on .nav itself rather than only here. */
+@media (display-mode: standalone) {
+  .nav { padding-top: calc(var(--space-3) + env(safe-area-inset-top)); }
+}

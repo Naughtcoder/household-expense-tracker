@@ -1,0 +1,6 @@
+{
+  "platforms": ["android"],
+  "android": {
+    "modules": ["morgan.household.readers.PaymentReadersModule"]
+  }
+}
